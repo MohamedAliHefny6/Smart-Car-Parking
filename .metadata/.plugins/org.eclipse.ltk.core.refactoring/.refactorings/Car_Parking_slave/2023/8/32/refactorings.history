@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;Car_Parking_slave/include/MUART_prv.h&apos; to &apos;MUART_prv1.h&apos;" description="Rename resource &apos;MUART_prv.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="include/MUART_prv.h" name="MUART_prv1.h" stamp="1691765846491" updateReferences="true"/>
+</session>

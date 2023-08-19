@@ -1,0 +1,33 @@
+15:56:56 **** Incremental Build of configuration Debug for project Car_Parking_slave ****
+make all 
+Building file: ../src/main.c
+Invoking: Cross ARM GNU C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -Og -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra  -g3 -DDEBUG -DUSE_FULL_ASSERT -DTRACE -DOS_USE_TRACE_SEMIHOSTING_DEBUG -DSTM32F401xC -DUSE_HAL_DRIVER -DHSE_VALUE=25000000 -I"../include" -I"../system/include" -I"../system/include/cmsis" -I"../system/include/stm32f4-hal" -std=gnu11 -MMD -MP -MF"src/main.d" -MT"src/main.o" -c -o "src/main.o" "../src/main.c"
+In file included from ../src/main.c:10:0:
+../include/STD_TYPES.h:25:0: warning: "NULL" redefined
+ #define NULL      ((void*)0)   //Because NULL is defined inside stdio.h and we're not going to use that
+ 
+In file included from d:\01- imt sdk\imt_sdk_win_64\imt_sdk_win_64\winarm\armgcc\arm-none-eabi\include\sys\unistd.h:14:0,
+                 from d:\01- imt sdk\imt_sdk_win_64\imt_sdk_win_64\winarm\armgcc\arm-none-eabi\include\unistd.h:4,
+                 from ../system/include/diag/Trace.h:33,
+                 from ../src/main.c:7:
+d:\01- imt sdk\imt_sdk_win_64\imt_sdk_win_64\winarm\armgcc\lib\gcc\arm-none-eabi\7.2.1\include\stddef.h:406:0: note: this is the location of the previous definition
+ #define NULL ((void *)0)
+ 
+Finished building: ../src/main.c
+ 
+Building target: Car_Parking_slave.elf
+Invoking: Cross ARM GNU C++ Linker
+arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -Og -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra  -g3 -T mem.ld -T libs.ld -T sections.ld -nostartfiles -Xlinker --gc-sections -L"../ldscripts" -Wl,-Map,"Car_Parking_slave.map" --specs=nano.specs -o "Car_Parking_slave.elf"  ./system/src/stm32f4-hal/stm32f4xx_hal.o ./system/src/stm32f4-hal/stm32f4xx_hal_cortex.o ./system/src/stm32f4-hal/stm32f4xx_hal_dfsdm.o ./system/src/stm32f4-hal/stm32f4xx_hal_flash.o ./system/src/stm32f4-hal/stm32f4xx_hal_gpio.o ./system/src/stm32f4-hal/stm32f4xx_hal_iwdg.o ./system/src/stm32f4-hal/stm32f4xx_hal_pwr.o ./system/src/stm32f4-hal/stm32f4xx_hal_rcc.o  ./system/src/newlib/_cxx.o ./system/src/newlib/_exit.o ./system/src/newlib/_sbrk.o ./system/src/newlib/_startup.o ./system/src/newlib/_syscalls.o ./system/src/newlib/assert.o  ./system/src/diag/Trace.o ./system/src/diag/trace_impl.o  ./system/src/cortexm/_initialize_hardware.o ./system/src/cortexm/_reset_hardware.o ./system/src/cortexm/exception_handlers.o  ./system/src/cmsis/system_stm32f4xx.o ./system/src/cmsis/vectors_stm32f401xc.o  ./src/Keypad_prg.o ./src/LCD.o ./src/LEDMATRIX_prg.o ./src/MEXTI_prg.o ./src/MGPIO_prg.o ./src/MNVIC_prg.o ./src/MRCC_prg.o ./src/MUART_prg.o ./src/SPI_prg.o ./src/STK_prg.o ./src/SYS_INIT.o ./src/Servo_motor.o ./src/TFT_prg.o ./src/_initialize_hardware.o ./src/_write.o ./src/main.o ./src/stm32f4xx_hal_msp.o   
+Finished building target: Car_Parking_slave.elf
+ 
+Invoking: Cross ARM GNU Create Flash Image
+arm-none-eabi-objcopy -O ihex "Car_Parking_slave.elf"  "Car_Parking_slave.hex"
+Finished building: Car_Parking_slave.hex
+ 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "Car_Parking_slave.elf"
+   text	   data	    bss	    dec	    hex	filename
+  10171	  41128	    452	  51751	   ca27	Car_Parking_slave.elf
+Finished building: Car_Parking_slave.siz
+ 

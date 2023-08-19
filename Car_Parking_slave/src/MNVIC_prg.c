@@ -1,0 +1,57 @@
+#include  "BIT_MATH.h"
+
+#include "MNVIC_prv.h"
+#include "MNVIC_int.h"
+
+u8 Global_u8PRI;
+
+void MNVIC_EnableInterrupt(u8 Copy_u8IntPos){
+	u8 Local_u8RegPosition= Copy_u8IntPos / 32;
+	u8 Local_u8BitPosition= Copy_u8IntPos % 32;
+	NVIC->ISER[Local_u8RegPosition] = 1 <<(Local_u8BitPosition);
+
+}
+void MNVIC_DisablePerInt(u8 Copy_u8IntPos){
+	u8 Local_u8RegPosition= Copy_u8IntPos / 32;
+	u8 Local_u8BitPosition= Copy_u8IntPos % 32;
+	NVIC->ICER[Local_u8RegPosition] = 1 <<(Local_u8BitPosition);
+
+}
+
+void MNVIC_EnableInterruptPending(u8 Copy_u8IntPos){
+	u8 Local_u8RegPosition= Copy_u8IntPos / 32;
+	u8 Local_u8BitPosition= Copy_u8IntPos % 32;
+	NVIC->ISPR[Local_u8RegPosition] = 1 <<(Local_u8BitPosition);
+}
+void MNVIC_DisablePendingFlag(u8 Copy_u8IntPos){
+	u8 Local_u8RegPosition= Copy_u8IntPos / 32;
+	u8 Local_u8BitPosition= Copy_u8IntPos % 32;
+	NVIC->ICPR[Local_u8RegPosition] = 1 <<(Local_u8BitPosition);
+}
+
+u8	 MNVIC_u8IsInterruptActive(u8 Copy_u8IntPos){
+	u8 Local_u8RegPosition= Copy_u8IntPos / 32;
+	u8 Local_u8BitPosition= Copy_u8IntPos % 32;
+	u8 result = GET_BIT(NVIC->IABR[Local_u8RegPosition] ,Local_u8BitPosition);
+	return result;
+}
+
+void MNVIC_SetIntterruptPriority(u8 Copy_u8IntPos, u8 Copy_u8GroupNum, u8 Copy_u8SubGroupNum){
+
+	switch(Global_u8PRI)
+	{
+	case MNVIC_GROUPMODE_G16S0: NVIC->IPR[Copy_u8IntPos] = Copy_u8GroupNum << 4; 								break;
+	case MNVIC_GROUPMODE_G8S2:  NVIC->IPR[Copy_u8IntPos] = Copy_u8GroupNum << 5 | Copy_u8SubGroupNum<<4;	 	break;
+	case MNVIC_GROUPMODE_G4S4:  NVIC->IPR[Copy_u8IntPos] = Copy_u8GroupNum << 6 | Copy_u8SubGroupNum<<4;	 	break;
+	case MNVIC_GROUPMODE_G2S8:	NVIC->IPR[Copy_u8IntPos] = Copy_u8GroupNum << 7 | Copy_u8SubGroupNum<<4;	 	break;
+	case MNVIC_GROUPMODE_G0S16: NVIC->IPR[Copy_u8IntPos] = Copy_u8SubGroupNum<<4;	 	break;
+	}
+}
+void MNVIC_SetIntterruptGroupMode( MNVIC_GroupMode_t Copy_uaddtGroupMode){
+	Global_u8PRI = Copy_uaddtGroupMode;
+	u32 Copy_u32Local;
+	MSCB_AIRCR = MNVIC_VECTKEY; //Reset the register first
+	Copy_u32Local = MNVIC_VECTKEY | (Copy_uaddtGroupMode <<8 );
+	MSCB_AIRCR = Copy_u32Local;
+}
+

@@ -1,0 +1,360 @@
+19:25:12 **** Incremental Build of configuration Debug for project Car_Parking ****
+make all 
+Building file: ../src/main.c
+Invoking: Cross ARM GNU C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -Og -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra  -g3 -DDEBUG -DUSE_FULL_ASSERT -DTRACE -DOS_USE_TRACE_SEMIHOSTING_DEBUG -DSTM32F401xC -DUSE_HAL_DRIVER -DHSE_VALUE=25000000 -I"../include" -I"../system/include" -I"../system/include/cmsis" -I"../system/include/stm32f4-hal" -std=gnu11 -MMD -MP -MF"src/main.d" -MT"src/main.o" -c -o "src/main.o" "../src/main.c"
+In file included from ../src/main.c:7:0:
+../include/STD_TYPES.h:25:0: warning: "NULL" redefined
+ #define NULL      ((void*)0)   //Because NULL is defined inside stdio.h and we're not going to use that
+ 
+In file included from d:\01- imt sdk\imt_sdk_win_64\imt_sdk_win_64\winarm\armgcc\arm-none-eabi\include\sys\unistd.h:14:0,
+                 from d:\01- imt sdk\imt_sdk_win_64\imt_sdk_win_64\winarm\armgcc\arm-none-eabi\include\unistd.h:4,
+                 from ../system/include/diag/Trace.h:33,
+                 from ../src/main.c:4:
+d:\01- imt sdk\imt_sdk_win_64\imt_sdk_win_64\winarm\armgcc\lib\gcc\arm-none-eabi\7.2.1\include\stddef.h:406:0: note: this is the location of the previous definition
+ #define NULL ((void *)0)
+ 
+In file included from ../src/main.c:15:0:
+../include/LEDMATRIX_int.h:5:0: warning: "COL0" redefined
+ #define COL0     PIN0
+ 
+In file included from ../src/main.c:14:0:
+../include/keypad_int.h:14:0: note: this is the location of the previous definition
+ #define COL0        PIN1
+ 
+In file included from ../src/main.c:15:0:
+../include/LEDMATRIX_int.h:6:0: warning: "COL1" redefined
+ #define COL1     PIN1
+ 
+In file included from ../src/main.c:14:0:
+../include/keypad_int.h:15:0: note: this is the location of the previous definition
+ #define COL1           PIN2
+ 
+In file included from ../src/main.c:15:0:
+../include/LEDMATRIX_int.h:7:0: warning: "COL2" redefined
+ #define COL2     PIN2
+ 
+In file included from ../src/main.c:14:0:
+../include/keypad_int.h:16:0: note: this is the location of the previous definition
+ #define COL2           PIN3
+ 
+In file included from ../src/main.c:15:0:
+../include/LEDMATRIX_int.h:16:0: warning: "ROW0" redefined
+ #define ROW0     PIN0
+ 
+In file included from ../src/main.c:14:0:
+../include/keypad_int.h:9:0: note: this is the location of the previous definition
+ #define ROW0        PIN12
+ 
+In file included from ../src/main.c:15:0:
+../include/LEDMATRIX_int.h:17:0: warning: "ROW1" redefined
+ #define ROW1     PIN1
+ 
+In file included from ../src/main.c:14:0:
+../include/keypad_int.h:10:0: note: this is the location of the previous definition
+ #define ROW1        PIN13
+ 
+In file included from ../src/main.c:15:0:
+../include/LEDMATRIX_int.h:18:0: warning: "ROW2" redefined
+ #define ROW2     PIN2
+ 
+In file included from ../src/main.c:14:0:
+../include/keypad_int.h:11:0: note: this is the location of the previous definition
+ #define ROW2        PIN14
+ 
+In file included from ../src/main.c:15:0:
+../include/LEDMATRIX_int.h:19:0: warning: "ROW3" redefined
+ #define ROW3     PIN6
+ 
+In file included from ../src/main.c:14:0:
+../include/keypad_int.h:12:0: note: this is the location of the previous definition
+ #define ROW3        PIN15
+ 
+../src/main.c: In function 'ENTER_GATE':
+../src/main.c:100:21: warning: pointer targets in passing argument 1 of 'LCD_WriteString' differ in signedness [-Wpointer-sign]
+     LCD_WriteString("GARAGE IS FULL ");
+                     ^~~~~~~~~~~~~~~~~
+In file included from ../src/main.c:13:0:
+../include/LCD.h:11:6: note: expected 'u8 * {aka unsigned char *}' but argument is of type 'char *'
+ void LCD_WriteString(u8*str);
+      ^~~~~~~~~~~~~~~
+../src/main.c:125:19: warning: pointer targets in passing argument 1 of 'LCD_WriteString' differ in signedness [-Wpointer-sign]
+   LCD_WriteString("CARS : ");
+                   ^~~~~~~~~
+In file included from ../src/main.c:13:0:
+../include/LCD.h:11:6: note: expected 'u8 * {aka unsigned char *}' but argument is of type 'char *'
+ void LCD_WriteString(u8*str);
+      ^~~~~~~~~~~~~~~
+../src/main.c:129:19: warning: pointer targets in passing argument 1 of 'LCD_WriteString' differ in signedness [-Wpointer-sign]
+   LCD_WriteString("FREE : ");
+                   ^~~~~~~~~
+In file included from ../src/main.c:13:0:
+../include/LCD.h:11:6: note: expected 'u8 * {aka unsigned char *}' but argument is of type 'char *'
+ void LCD_WriteString(u8*str);
+      ^~~~~~~~~~~~~~~
+../src/main.c:140:21: warning: pointer targets in passing argument 1 of 'LCD_WriteString' differ in signedness [-Wpointer-sign]
+     LCD_WriteString("CARS INSIDE !");
+                     ^~~~~~~~~~~~~~~
+In file included from ../src/main.c:13:0:
+../include/LCD.h:11:6: note: expected 'u8 * {aka unsigned char *}' but argument is of type 'char *'
+ void LCD_WriteString(u8*str);
+      ^~~~~~~~~~~~~~~
+../src/main.c:147:23: warning: pointer targets in passing argument 1 of 'LCD_WriteString' differ in signedness [-Wpointer-sign]
+       LCD_WriteString("CARS : ");
+                       ^~~~~~~~~
+In file included from ../src/main.c:13:0:
+../include/LCD.h:11:6: note: expected 'u8 * {aka unsigned char *}' but argument is of type 'char *'
+ void LCD_WriteString(u8*str);
+      ^~~~~~~~~~~~~~~
+../src/main.c:151:23: warning: pointer targets in passing argument 1 of 'LCD_WriteString' differ in signedness [-Wpointer-sign]
+       LCD_WriteString("FREE : ");
+                       ^~~~~~~~~
+In file included from ../src/main.c:13:0:
+../include/LCD.h:11:6: note: expected 'u8 * {aka unsigned char *}' but argument is of type 'char *'
+ void LCD_WriteString(u8*str);
+      ^~~~~~~~~~~~~~~
+../src/main.c:177:19: warning: pointer targets in passing argument 1 of 'LCD_WriteString' differ in signedness [-Wpointer-sign]
+   LCD_WriteString("CARS : ");
+                   ^~~~~~~~~
+In file included from ../src/main.c:13:0:
+../include/LCD.h:11:6: note: expected 'u8 * {aka unsigned char *}' but argument is of type 'char *'
+ void LCD_WriteString(u8*str);
+      ^~~~~~~~~~~~~~~
+../src/main.c:181:19: warning: pointer targets in passing argument 1 of 'LCD_WriteString' differ in signedness [-Wpointer-sign]
+   LCD_WriteString("FREE : ");
+                   ^~~~~~~~~
+In file included from ../src/main.c:13:0:
+../include/LCD.h:11:6: note: expected 'u8 * {aka unsigned char *}' but argument is of type 'char *'
+ void LCD_WriteString(u8*str);
+      ^~~~~~~~~~~~~~~
+../src/main.c:192:21: warning: pointer targets in passing argument 1 of 'LCD_WriteString' differ in signedness [-Wpointer-sign]
+     LCD_WriteString("CARS INSIDE !");
+                     ^~~~~~~~~~~~~~~
+In file included from ../src/main.c:13:0:
+../include/LCD.h:11:6: note: expected 'u8 * {aka unsigned char *}' but argument is of type 'char *'
+ void LCD_WriteString(u8*str);
+      ^~~~~~~~~~~~~~~
+../src/main.c:198:23: warning: pointer targets in passing argument 1 of 'LCD_WriteString' differ in signedness [-Wpointer-sign]
+       LCD_WriteString("CARS : ");
+                       ^~~~~~~~~
+In file included from ../src/main.c:13:0:
+../include/LCD.h:11:6: note: expected 'u8 * {aka unsigned char *}' but argument is of type 'char *'
+ void LCD_WriteString(u8*str);
+      ^~~~~~~~~~~~~~~
+../src/main.c:202:23: warning: pointer targets in passing argument 1 of 'LCD_WriteString' differ in signedness [-Wpointer-sign]
+       LCD_WriteString("FREE : ");
+                       ^~~~~~~~~
+In file included from ../src/main.c:13:0:
+../include/LCD.h:11:6: note: expected 'u8 * {aka unsigned char *}' but argument is of type 'char *'
+ void LCD_WriteString(u8*str);
+      ^~~~~~~~~~~~~~~
+../src/main.c:229:19: warning: pointer targets in passing argument 1 of 'LCD_WriteString' differ in signedness [-Wpointer-sign]
+   LCD_WriteString("CARS : ");
+                   ^~~~~~~~~
+In file included from ../src/main.c:13:0:
+../include/LCD.h:11:6: note: expected 'u8 * {aka unsigned char *}' but argument is of type 'char *'
+ void LCD_WriteString(u8*str);
+      ^~~~~~~~~~~~~~~
+../src/main.c:233:19: warning: pointer targets in passing argument 1 of 'LCD_WriteString' differ in signedness [-Wpointer-sign]
+   LCD_WriteString("FREE : ");
+                   ^~~~~~~~~
+In file included from ../src/main.c:13:0:
+../include/LCD.h:11:6: note: expected 'u8 * {aka unsigned char *}' but argument is of type 'char *'
+ void LCD_WriteString(u8*str);
+      ^~~~~~~~~~~~~~~
+../src/main.c:243:21: warning: pointer targets in passing argument 1 of 'LCD_WriteString' differ in signedness [-Wpointer-sign]
+     LCD_WriteString("CARS INSIDE !");
+                     ^~~~~~~~~~~~~~~
+In file included from ../src/main.c:13:0:
+../include/LCD.h:11:6: note: expected 'u8 * {aka unsigned char *}' but argument is of type 'char *'
+ void LCD_WriteString(u8*str);
+      ^~~~~~~~~~~~~~~
+../src/main.c:249:23: warning: pointer targets in passing argument 1 of 'LCD_WriteString' differ in signedness [-Wpointer-sign]
+       LCD_WriteString("CARS : ");
+                       ^~~~~~~~~
+In file included from ../src/main.c:13:0:
+../include/LCD.h:11:6: note: expected 'u8 * {aka unsigned char *}' but argument is of type 'char *'
+ void LCD_WriteString(u8*str);
+      ^~~~~~~~~~~~~~~
+../src/main.c:253:23: warning: pointer targets in passing argument 1 of 'LCD_WriteString' differ in signedness [-Wpointer-sign]
+       LCD_WriteString("FREE : ");
+                       ^~~~~~~~~
+In file included from ../src/main.c:13:0:
+../include/LCD.h:11:6: note: expected 'u8 * {aka unsigned char *}' but argument is of type 'char *'
+ void LCD_WriteString(u8*str);
+      ^~~~~~~~~~~~~~~
+../src/main.c:270:19: warning: pointer targets in passing argument 1 of 'LCD_WriteString' differ in signedness [-Wpointer-sign]
+   LCD_WriteString("WRONG PASSWORD");
+                   ^~~~~~~~~~~~~~~~
+In file included from ../src/main.c:13:0:
+../include/LCD.h:11:6: note: expected 'u8 * {aka unsigned char *}' but argument is of type 'char *'
+ void LCD_WriteString(u8*str);
+      ^~~~~~~~~~~~~~~
+../src/main.c:275:21: warning: pointer targets in passing argument 1 of 'LCD_WriteString' differ in signedness [-Wpointer-sign]
+     LCD_WriteString("CARS : ");
+                     ^~~~~~~~~
+In file included from ../src/main.c:13:0:
+../include/LCD.h:11:6: note: expected 'u8 * {aka unsigned char *}' but argument is of type 'char *'
+ void LCD_WriteString(u8*str);
+      ^~~~~~~~~~~~~~~
+../src/main.c:279:21: warning: pointer targets in passing argument 1 of 'LCD_WriteString' differ in signedness [-Wpointer-sign]
+     LCD_WriteString("FREE : ");
+                     ^~~~~~~~~
+In file included from ../src/main.c:13:0:
+../include/LCD.h:11:6: note: expected 'u8 * {aka unsigned char *}' but argument is of type 'char *'
+ void LCD_WriteString(u8*str);
+      ^~~~~~~~~~~~~~~
+../src/main.c: In function 'EXIT_GATE':
+../src/main.c:328:20: warning: pointer targets in passing argument 1 of 'LCD_WriteString' differ in signedness [-Wpointer-sign]
+    LCD_WriteString("CARS : ");
+                    ^~~~~~~~~
+In file included from ../src/main.c:13:0:
+../include/LCD.h:11:6: note: expected 'u8 * {aka unsigned char *}' but argument is of type 'char *'
+ void LCD_WriteString(u8*str);
+      ^~~~~~~~~~~~~~~
+../src/main.c:332:20: warning: pointer targets in passing argument 1 of 'LCD_WriteString' differ in signedness [-Wpointer-sign]
+    LCD_WriteString("FREE : ");
+                    ^~~~~~~~~
+In file included from ../src/main.c:13:0:
+../include/LCD.h:11:6: note: expected 'u8 * {aka unsigned char *}' but argument is of type 'char *'
+ void LCD_WriteString(u8*str);
+      ^~~~~~~~~~~~~~~
+../src/main.c:343:22: warning: pointer targets in passing argument 1 of 'LCD_WriteString' differ in signedness [-Wpointer-sign]
+      LCD_WriteString("CAR NOT HERE !");
+                      ^~~~~~~~~~~~~~~~
+In file included from ../src/main.c:13:0:
+../include/LCD.h:11:6: note: expected 'u8 * {aka unsigned char *}' but argument is of type 'char *'
+ void LCD_WriteString(u8*str);
+      ^~~~~~~~~~~~~~~
+../src/main.c:350:24: warning: pointer targets in passing argument 1 of 'LCD_WriteString' differ in signedness [-Wpointer-sign]
+        LCD_WriteString("CARS : ");
+                        ^~~~~~~~~
+In file included from ../src/main.c:13:0:
+../include/LCD.h:11:6: note: expected 'u8 * {aka unsigned char *}' but argument is of type 'char *'
+ void LCD_WriteString(u8*str);
+      ^~~~~~~~~~~~~~~
+../src/main.c:354:24: warning: pointer targets in passing argument 1 of 'LCD_WriteString' differ in signedness [-Wpointer-sign]
+        LCD_WriteString("FREE : ");
+                        ^~~~~~~~~
+In file included from ../src/main.c:13:0:
+../include/LCD.h:11:6: note: expected 'u8 * {aka unsigned char *}' but argument is of type 'char *'
+ void LCD_WriteString(u8*str);
+      ^~~~~~~~~~~~~~~
+../src/main.c:381:20: warning: pointer targets in passing argument 1 of 'LCD_WriteString' differ in signedness [-Wpointer-sign]
+    LCD_WriteString("CARS : ");
+                    ^~~~~~~~~
+In file included from ../src/main.c:13:0:
+../include/LCD.h:11:6: note: expected 'u8 * {aka unsigned char *}' but argument is of type 'char *'
+ void LCD_WriteString(u8*str);
+      ^~~~~~~~~~~~~~~
+../src/main.c:385:20: warning: pointer targets in passing argument 1 of 'LCD_WriteString' differ in signedness [-Wpointer-sign]
+    LCD_WriteString("FREE : ");
+                    ^~~~~~~~~
+In file included from ../src/main.c:13:0:
+../include/LCD.h:11:6: note: expected 'u8 * {aka unsigned char *}' but argument is of type 'char *'
+ void LCD_WriteString(u8*str);
+      ^~~~~~~~~~~~~~~
+../src/main.c:396:22: warning: pointer targets in passing argument 1 of 'LCD_WriteString' differ in signedness [-Wpointer-sign]
+      LCD_WriteString("CAR NOT HERE !");
+                      ^~~~~~~~~~~~~~~~
+In file included from ../src/main.c:13:0:
+../include/LCD.h:11:6: note: expected 'u8 * {aka unsigned char *}' but argument is of type 'char *'
+ void LCD_WriteString(u8*str);
+      ^~~~~~~~~~~~~~~
+../src/main.c:402:24: warning: pointer targets in passing argument 1 of 'LCD_WriteString' differ in signedness [-Wpointer-sign]
+        LCD_WriteString("CARS : ");
+                        ^~~~~~~~~
+In file included from ../src/main.c:13:0:
+../include/LCD.h:11:6: note: expected 'u8 * {aka unsigned char *}' but argument is of type 'char *'
+ void LCD_WriteString(u8*str);
+      ^~~~~~~~~~~~~~~
+../src/main.c:406:24: warning: pointer targets in passing argument 1 of 'LCD_WriteString' differ in signedness [-Wpointer-sign]
+        LCD_WriteString("FREE : ");
+                        ^~~~~~~~~
+In file included from ../src/main.c:13:0:
+../include/LCD.h:11:6: note: expected 'u8 * {aka unsigned char *}' but argument is of type 'char *'
+ void LCD_WriteString(u8*str);
+      ^~~~~~~~~~~~~~~
+../src/main.c:434:20: warning: pointer targets in passing argument 1 of 'LCD_WriteString' differ in signedness [-Wpointer-sign]
+    LCD_WriteString("CARS : ");
+                    ^~~~~~~~~
+In file included from ../src/main.c:13:0:
+../include/LCD.h:11:6: note: expected 'u8 * {aka unsigned char *}' but argument is of type 'char *'
+ void LCD_WriteString(u8*str);
+      ^~~~~~~~~~~~~~~
+../src/main.c:438:20: warning: pointer targets in passing argument 1 of 'LCD_WriteString' differ in signedness [-Wpointer-sign]
+    LCD_WriteString("FREE : ");
+                    ^~~~~~~~~
+In file included from ../src/main.c:13:0:
+../include/LCD.h:11:6: note: expected 'u8 * {aka unsigned char *}' but argument is of type 'char *'
+ void LCD_WriteString(u8*str);
+      ^~~~~~~~~~~~~~~
+../src/main.c:448:22: warning: pointer targets in passing argument 1 of 'LCD_WriteString' differ in signedness [-Wpointer-sign]
+      LCD_WriteString("CAR NOT HERE !");
+                      ^~~~~~~~~~~~~~~~
+In file included from ../src/main.c:13:0:
+../include/LCD.h:11:6: note: expected 'u8 * {aka unsigned char *}' but argument is of type 'char *'
+ void LCD_WriteString(u8*str);
+      ^~~~~~~~~~~~~~~
+../src/main.c:454:24: warning: pointer targets in passing argument 1 of 'LCD_WriteString' differ in signedness [-Wpointer-sign]
+        LCD_WriteString("CARS : ");
+                        ^~~~~~~~~
+In file included from ../src/main.c:13:0:
+../include/LCD.h:11:6: note: expected 'u8 * {aka unsigned char *}' but argument is of type 'char *'
+ void LCD_WriteString(u8*str);
+      ^~~~~~~~~~~~~~~
+../src/main.c:458:24: warning: pointer targets in passing argument 1 of 'LCD_WriteString' differ in signedness [-Wpointer-sign]
+        LCD_WriteString("FREE : ");
+                        ^~~~~~~~~
+In file included from ../src/main.c:13:0:
+../include/LCD.h:11:6: note: expected 'u8 * {aka unsigned char *}' but argument is of type 'char *'
+ void LCD_WriteString(u8*str);
+      ^~~~~~~~~~~~~~~
+../src/main.c:475:20: warning: pointer targets in passing argument 1 of 'LCD_WriteString' differ in signedness [-Wpointer-sign]
+    LCD_WriteString("WRONG PASSWORD");
+                    ^~~~~~~~~~~~~~~~
+In file included from ../src/main.c:13:0:
+../include/LCD.h:11:6: note: expected 'u8 * {aka unsigned char *}' but argument is of type 'char *'
+ void LCD_WriteString(u8*str);
+      ^~~~~~~~~~~~~~~
+../src/main.c:480:22: warning: pointer targets in passing argument 1 of 'LCD_WriteString' differ in signedness [-Wpointer-sign]
+      LCD_WriteString("CARS : ");
+                      ^~~~~~~~~
+In file included from ../src/main.c:13:0:
+../include/LCD.h:11:6: note: expected 'u8 * {aka unsigned char *}' but argument is of type 'char *'
+ void LCD_WriteString(u8*str);
+      ^~~~~~~~~~~~~~~
+../src/main.c:484:22: warning: pointer targets in passing argument 1 of 'LCD_WriteString' differ in signedness [-Wpointer-sign]
+      LCD_WriteString("FREE : ");
+                      ^~~~~~~~~
+In file included from ../src/main.c:13:0:
+../include/LCD.h:11:6: note: expected 'u8 * {aka unsigned char *}' but argument is of type 'char *'
+ void LCD_WriteString(u8*str);
+      ^~~~~~~~~~~~~~~
+../src/main.c: At top level:
+../include/LCD.h:22:13: warning: 'WriteIns_4BIT' declared 'static' but never defined [-Wunused-function]
+ static void WriteIns_4BIT(u8 ins);
+             ^~~~~~~~~~~~~
+../include/LCD.h:23:13: warning: 'WriteData_4BIT' declared 'static' but never defined [-Wunused-function]
+ static void WriteData_4BIT(u8 data);
+             ^~~~~~~~~~~~~~
+Finished building: ../src/main.c
+ 
+Building target: Car_Parking.elf
+Invoking: Cross ARM GNU C++ Linker
+arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -Og -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra  -g3 -T mem.ld -T libs.ld -T sections.ld -nostartfiles -Xlinker --gc-sections -L"../ldscripts" -Wl,-Map,"Car_Parking.map" --specs=nano.specs -o "Car_Parking.elf"  ./system/src/stm32f4-hal/stm32f4xx_hal.o ./system/src/stm32f4-hal/stm32f4xx_hal_cortex.o ./system/src/stm32f4-hal/stm32f4xx_hal_dfsdm.o ./system/src/stm32f4-hal/stm32f4xx_hal_flash.o ./system/src/stm32f4-hal/stm32f4xx_hal_gpio.o ./system/src/stm32f4-hal/stm32f4xx_hal_iwdg.o ./system/src/stm32f4-hal/stm32f4xx_hal_pwr.o ./system/src/stm32f4-hal/stm32f4xx_hal_rcc.o  ./system/src/newlib/_cxx.o ./system/src/newlib/_exit.o ./system/src/newlib/_sbrk.o ./system/src/newlib/_startup.o ./system/src/newlib/_syscalls.o ./system/src/newlib/assert.o  ./system/src/diag/Trace.o ./system/src/diag/trace_impl.o  ./system/src/cortexm/_initialize_hardware.o ./system/src/cortexm/_reset_hardware.o ./system/src/cortexm/exception_handlers.o  ./system/src/cmsis/system_stm32f4xx.o ./system/src/cmsis/vectors_stm32f401xc.o  ./src/Keypad_prg.o ./src/LCD.o ./src/LEDMATRIX_prg.o ./src/MEXTI_prg.o ./src/MGPIO_prg.o ./src/MNVIC_prg.o ./src/MRCC_prg.o ./src/MUART_prg.o ./src/SPI_prg.o ./src/STK_prg.o ./src/SYS_INIT.o ./src/Servo_motor.o ./src/TFT_prg.o ./src/main.o ./src/stm32f4xx_hal_msp.o   
+Finished building target: Car_Parking.elf
+ 
+Invoking: Cross ARM GNU Create Flash Image
+arm-none-eabi-objcopy -O ihex "Car_Parking.elf"  "Car_Parking.hex"
+Finished building: Car_Parking.hex
+ 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "Car_Parking.elf"
+   text	   data	    bss	    dec	    hex	filename
+  11327	    164	    456	  11947	   2eab	Car_Parking.elf
+Finished building: Car_Parking.siz
+ 
+
+19:25:14 Build Finished (took 1s.525ms)
+

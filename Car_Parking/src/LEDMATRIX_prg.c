@@ -1,0 +1,115 @@
+
+#include "STD_TYPES.h"
+#include "BIT_MATH.h"
+
+#include "MGPIO_int.h"
+#include "STK_int.h"
+
+#include "LEDMATRIX_int.h"
+
+void LEDMTX_vidInit(void)
+{
+	MGPIO_SetPinMode(PORTB,ROW0,OUTPUT);
+	MGPIO_SetPinMode(PORTB,ROW1,OUTPUT);
+	MGPIO_SetPinMode(PORTB,ROW2,OUTPUT);
+	MGPIO_SetPinMode(PORTB,ROW3,OUTPUT);
+	MGPIO_SetPinMode(PORTB,ROW4,OUTPUT);
+	MGPIO_SetPinMode(PORTB,ROW5,OUTPUT);
+	MGPIO_SetPinMode(PORTB,ROW6,OUTPUT);
+	MGPIO_SetPinMode(PORTB,ROW7,OUTPUT);
+
+	MGPIO_SetPinMode(PORTA,COL0,OUTPUT);
+	MGPIO_SetPinMode(PORTA,COL1,OUTPUT);
+	MGPIO_SetPinMode(PORTA,COL2,OUTPUT);
+	MGPIO_SetPinMode(PORTA,COL3,OUTPUT);
+	MGPIO_SetPinMode(PORTA,COL4,OUTPUT);
+	MGPIO_SetPinMode(PORTA,COL5,OUTPUT);
+	MGPIO_SetPinMode(PORTA,COL6,OUTPUT);
+	MGPIO_SetPinMode(PORTA,COL7,OUTPUT);
+
+
+	MGPIO_SetOutputPinMode(PORTB,ROW0,OUTPUT_PUSH_PULL,OUTPUT_MEDIUM);
+	MGPIO_SetOutputPinMode(PORTB,ROW1,OUTPUT_PUSH_PULL,OUTPUT_MEDIUM);
+	MGPIO_SetOutputPinMode(PORTB,ROW2,OUTPUT_PUSH_PULL,OUTPUT_MEDIUM);
+	MGPIO_SetOutputPinMode(PORTB,ROW3,OUTPUT_PUSH_PULL,OUTPUT_MEDIUM);
+	MGPIO_SetOutputPinMode(PORTB,ROW4,OUTPUT_PUSH_PULL,OUTPUT_MEDIUM);
+	MGPIO_SetOutputPinMode(PORTB,ROW5,OUTPUT_PUSH_PULL,OUTPUT_MEDIUM);
+	MGPIO_SetOutputPinMode(PORTB,ROW6,OUTPUT_PUSH_PULL,OUTPUT_MEDIUM);
+	MGPIO_SetOutputPinMode(PORTB,ROW7,OUTPUT_PUSH_PULL,OUTPUT_MEDIUM);
+
+	MGPIO_SetOutputPinMode(PORTA,COL0,OUTPUT_PUSH_PULL,OUTPUT_MEDIUM);
+	MGPIO_SetOutputPinMode(PORTA,COL1,OUTPUT_PUSH_PULL,OUTPUT_MEDIUM);
+	MGPIO_SetOutputPinMode(PORTA,COL2,OUTPUT_PUSH_PULL,OUTPUT_MEDIUM);
+	MGPIO_SetOutputPinMode(PORTA,COL3,OUTPUT_PUSH_PULL,OUTPUT_MEDIUM);
+	MGPIO_SetOutputPinMode(PORTA,COL4,OUTPUT_PUSH_PULL,OUTPUT_MEDIUM);
+	MGPIO_SetOutputPinMode(PORTA,COL5,OUTPUT_PUSH_PULL,OUTPUT_MEDIUM);
+	MGPIO_SetOutputPinMode(PORTA,COL6,OUTPUT_PUSH_PULL,OUTPUT_MEDIUM);
+	MGPIO_SetOutputPinMode(PORTA,COL7,OUTPUT_PUSH_PULL,OUTPUT_MEDIUM);
+}
+
+void LEDMTX_vidDisplay(u8 *Copy_u8Frame)
+{
+	LEDMTX_vidDisableCols();
+	LEDMTX_vidSetRowValues(Copy_u8Frame[0]);
+	MGPIO_SetPinValue(PORTA,COL0,PIN_HIGH);
+	MSTK_voidDelayMsec(2.5);
+
+	LEDMTX_vidDisableCols();
+	LEDMTX_vidSetRowValues(Copy_u8Frame[1]);
+	MGPIO_SetPinValue(PORTA,COL1,PIN_HIGH);
+	MSTK_voidDelayMsec(2.5);
+
+	LEDMTX_vidDisableCols();
+	LEDMTX_vidSetRowValues(Copy_u8Frame[2]);
+	MGPIO_SetPinValue(PORTA,COL2,PIN_HIGH);
+	MSTK_voidDelayMsec(2.5);
+
+	LEDMTX_vidDisableCols();
+	LEDMTX_vidSetRowValues(Copy_u8Frame[3]);
+	MGPIO_SetPinValue(PORTA,COL3,PIN_HIGH);
+	MSTK_voidDelayMsec(2.5);
+
+	LEDMTX_vidDisableCols();
+	LEDMTX_vidSetRowValues(Copy_u8Frame[4]);
+	MGPIO_SetPinValue(PORTA,COL4,PIN_HIGH);
+	MSTK_voidDelayMsec(2.5);
+
+	LEDMTX_vidDisableCols();
+	LEDMTX_vidSetRowValues(Copy_u8Frame[5]);
+	MGPIO_SetPinValue(PORTA,COL5,PIN_HIGH);
+	MSTK_voidDelayMsec(2.5);
+
+	LEDMTX_vidDisableCols();
+	LEDMTX_vidSetRowValues(Copy_u8Frame[6]);
+	MGPIO_SetPinValue(PORTA,COL6,PIN_HIGH);
+	MSTK_voidDelayMsec(2.5);
+
+	LEDMTX_vidDisableCols();
+	LEDMTX_vidSetRowValues(Copy_u8Frame[7]);
+	MGPIO_SetPinValue(PORTA,COL7,PIN_HIGH);
+	MSTK_voidDelayMsec(2.5);
+}
+
+void LEDMTX_vidDisableCols(void)
+{
+	MGPIO_SetPinValue(PORTA,COL0,PIN_LOW);
+	MGPIO_SetPinValue(PORTA,COL1,PIN_LOW);
+	MGPIO_SetPinValue(PORTA,COL2,PIN_LOW);
+	MGPIO_SetPinValue(PORTA,COL3,PIN_LOW);
+	MGPIO_SetPinValue(PORTA,COL4,PIN_LOW);
+	MGPIO_SetPinValue(PORTA,COL5,PIN_LOW);
+	MGPIO_SetPinValue(PORTA,COL6,PIN_LOW);
+	MGPIO_SetPinValue(PORTA,COL7,PIN_LOW);
+}
+
+void LEDMTX_vidSetRowValues(u8 Copy_u8Frame)
+{
+	MGPIO_SetPinValue(PORTB,ROW0,!GET_BIT(Copy_u8Frame,0));
+	MGPIO_SetPinValue(PORTB,ROW1,!GET_BIT(Copy_u8Frame,1));
+	MGPIO_SetPinValue(PORTB,ROW2,!GET_BIT(Copy_u8Frame,2));
+	MGPIO_SetPinValue(PORTB,ROW3,!GET_BIT(Copy_u8Frame,3));
+	MGPIO_SetPinValue(PORTB,ROW4,!GET_BIT(Copy_u8Frame,4));
+	MGPIO_SetPinValue(PORTB,ROW5,!GET_BIT(Copy_u8Frame,5));
+	MGPIO_SetPinValue(PORTB,ROW6,!GET_BIT(Copy_u8Frame,6));
+	MGPIO_SetPinValue(PORTB,ROW7,!GET_BIT(Copy_u8Frame,7));
+}

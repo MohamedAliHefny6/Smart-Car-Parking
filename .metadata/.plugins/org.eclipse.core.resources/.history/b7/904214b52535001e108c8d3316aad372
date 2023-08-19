@@ -1,0 +1,59 @@
+
+#include <stdio.h>
+#include <stdlib.h>
+#include "diag/Trace.h"
+
+#include "BIT_MATH.h"
+#include "STD_TYPES.h"
+
+#include "MRCC_int.h"
+#include "MGPIO_int.h"
+#include "STK_int.h"
+#include "LCD.h"
+
+#include "keypad_int.h"
+
+
+
+
+
+
+
+int main(void)
+{
+	MRCC_InitSysClk ();
+	MRCC_vidEnable_Peripheral (RCC_AHB1,AHB1ENR_GPIOAEN) ;
+	MRCC_vidEnable_Peripheral (RCC_AHB1,AHB1ENR_GPIOBEN) ;
+	MSTK_voidInit();
+	LCD_Init();
+	keypad_init();
+
+
+
+u8 k ;
+
+
+
+  while (1)
+    {
+
+k= keypad_Get_Pressed_Key();
+if (k!= NO_KEY)
+{
+	LCD_WriteChar(k);
+}
+
+
+
+
+
+
+
+
+
+
+
+    }
+}
+
+

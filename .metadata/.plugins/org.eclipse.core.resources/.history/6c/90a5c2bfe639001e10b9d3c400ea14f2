@@ -1,0 +1,112 @@
+
+#include <stdio.h>
+#include <stdlib.h>
+#include "diag/Trace.h"
+
+#include "BIT_MATH.h"
+#include "STD_TYPES.h"
+
+#include "MRCC_int.h"
+#include "MGPIO_int.h"
+#include "STK_int.h"
+
+#include "LCD.h"
+#include "keypad_int.h"
+#include "LEDMATRIX_int.h"
+#include "Servo_Motor.h"
+
+#include "MUART_int.h"
+#include "MNVIC_int.h"
+
+#include "SYS_INIT.h"
+#include "MEXTI_int.h"
+
+
+u8 arr;
+u8 user;
+u8 motionsenser;
+u8 flag_motion =0;
+
+
+void func1(void);
+void func2(void);
+
+
+
+
+int main(void)
+{
+
+	SYS_INIT();
+	EXTI_INIT();
+
+	user = UART_READ_DATA();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+
+void func1(void){
+
+
+	if (user == user1 || user==user2 || user== user3)
+
+							{
+		motionsenser = MGPIO_voidGetPinValue(PORTA , PIN0) ;
+
+								if (motionsenser == 1){
+									Servo1_Entry_Gate(1);
+
+
+
+								}
+								 if(motionsenser == 0){
+									Servo1_Entry_Gate(0);
+
+								}
+
+
+							}
+
+							}
+
+
+
+
+
+
+
+
+
+
+
+void func2(void){
+
+}
